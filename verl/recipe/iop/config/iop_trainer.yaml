@@ -1,0 +1,85 @@
+hydra:
+  searchpath:
+    - file://verl/trainer/config
+
+defaults:
+  - ppo_trainer
+  - _self_
+
+data:
+  max_prompt_length: 16384
+  max_response_length: 4096
+  train_batch_size: 64
+  dataloader_num_workers: 0
+
+actor_rollout_ref:
+  model:
+    use_remove_padding: false
+    override_config:
+      attn_implementation: sdpa
+  actor:
+    strategy: fsdp2
+    policy_loss:
+      loss_mode: gspo
+    loss_agg_mode: seq-mean-token-mean
+    use_kl_loss: true
+    kl_loss_coef: 0.002
+    kl_loss_type: low_var_kl
+    entropy_coeff: 0
+    ppo_mini_batch_size: ${data.train_batch_size}
+    ppo_epochs: 1
+    ppo_micro_batch_size_per_gpu: 1
+    clip_ratio: 0.2
+    clip_ratio_low: 0.2
+    clip_ratio_high: 0.2
+    optim:
+      lr: 1.0e-6
+      lr_warmup_steps: 20
+    fsdp_config:
+      strategy: fsdp2
+      use_torch_compile: false
+      ulysses_sequence_parallel_size: 1
+  ref:
+    strategy: fsdp2
+    log_prob_micro_batch_size_per_gpu: 1
+    fsdp_config:
+      strategy: fsdp2
+      use_torch_compile: false
+  rollout:
+    name: vllm
+    max_model_len: 32768
+    n: 16
+    temperature: 0.6
+    top_p: 0.95
+    top_k: 20
+    log_prob_micro_batch_size_per_gpu: 1
+    multi_turn:
+      enable: false
+
+algorithm:
+  adv_estimator: iop
+  use_kl_in_reward: false
+
+reward:
+  custom_reward_function:
+    path: pkg://recipe.iop.reward
+    name: compute_score
+  reward_model:
+    enable: false
+
+trainer:
+  project_name: verl-iop
+  experiment_name: iop-core
+  balance_batch: true
+
+iop:
+  repair_n: 4
+  edit_weight: 0.3
+  repair_weight: 0.2
+  truncation_k: 50
+  # None explicitly selects the paper's no-audit ablation.
+  audit_path: null
+  audit_name: compute_audit
+  seed: 42
+  generation_concurrency: 32
+  trace: false

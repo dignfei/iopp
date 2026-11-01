@@ -1,0 +1,1012 @@
+{
+  "status": "passed",
+  "validation_date": "2026-10-12",
+  "validated_inference_source_commit": "0b34fa8997",
+  "precompiled_extension_base_commit": "458ba2edf85bc9b7ebc0d5141f34ea658520faf5",
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "memory_mib": 8188,
+    "compute_capability": [
+      8,
+      9
+    ],
+    "driver": "595.79",
+    "platform": "WSL2"
+  },
+  "software": {
+    "torch": "2.13.0+cu130",
+    "torch_cuda_runtime": "13.0",
+    "installed_cuda_toolkit": "13.4",
+    "attention_backend": "TRITON_ATTN"
+  },
+  "kernel_checks": {
+    "exact_prefix_and_gdn_copy_gpu_cases": 36,
+    "existing_actual_cuda_regression_cases": 109,
+    "host_bookkeeping_cases_excluded": 3,
+    "actual_gpu_cases_total": 145
+  },
+  "model_checks": {
+    "configuration_count": 12,
+    "prompt_cases": 56,
+    "cancellation_cases": 12,
+    "max_logprob_error": 0.0004825592041015625,
+    "logprob_tolerance": 0.003,
+    "models": "Local seeded random OPT and Qwen3Next (full attention, GDN and two-expert MoE); no downloaded pretrained weights.",
+    "runs": [
+      {
+        "name": "native-gdn-v1-apcoff",
+        "family": "qwen3next",
+        "runner": "v1",
+        "prefix_cache": "off",
+        "cuda_graph": false,
+        "stream_interval": 10,
+        "full_attention_block_sizes": [
+          272
+        ],
+        "cases": [
+          {
+            "prompt_tokens": 15,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0002422332763671875,
+            "changed_prefix_score_delta": 0.21188831329345703
+          },
+          {
+            "prompt_tokens": 16,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0003380775451660156,
+            "changed_prefix_score_delta": 0.14646053314208984
+          },
+          {
+            "prompt_tokens": 17,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.00022411346435546875,
+            "changed_prefix_score_delta": 0.2552170753479004
+          },
+          {
+            "prompt_tokens": 271,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.00022792816162109375,
+            "changed_prefix_score_delta": 0.02717113494873047
+          },
+          {
+            "prompt_tokens": 272,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.000286102294921875,
+            "changed_prefix_score_delta": 0.04170370101928711
+          },
+          {
+            "prompt_tokens": 273,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.00010204315185546875,
+            "changed_prefix_score_delta": 0.03873491287231445
+          }
+        ],
+        "cancellation": {
+          "after_eos_fork_before_next_schedule": true,
+          "group_aliases_cleared": true,
+          "unexecuted_copies_cleared": true,
+          "ordinary_gpu_forward_survived": true,
+          "live_kv_references": 0
+        }
+      },
+      {
+        "name": "native-gdn-v1-apcon",
+        "family": "qwen3next",
+        "runner": "v1",
+        "prefix_cache": "on",
+        "cuda_graph": false,
+        "stream_interval": 10,
+        "full_attention_block_sizes": [
+          272
+        ],
+        "cases": [
+          {
+            "prompt_tokens": 15,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0002422332763671875,
+            "changed_prefix_score_delta": 0.21188831329345703
+          },
+          {
+            "prompt_tokens": 16,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0003380775451660156,
+            "changed_prefix_score_delta": 0.14646053314208984
+          },
+          {
+            "prompt_tokens": 17,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.00022411346435546875,
+            "changed_prefix_score_delta": 0.2552170753479004
+          },
+          {
+            "prompt_tokens": 271,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.00022792816162109375,
+            "changed_prefix_score_delta": 0.02717113494873047
+          },
+          {
+            "prompt_tokens": 272,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.00017118453979492188,
+            "changed_prefix_score_delta": 0.041815757751464844
+          },
+          {
+            "prompt_tokens": 273,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0001239776611328125,
+            "changed_prefix_score_delta": 0.03879690170288086
+          }
+        ],
+        "cancellation": {
+          "after_eos_fork_before_next_schedule": true,
+          "group_aliases_cleared": true,
+          "unexecuted_copies_cleared": true,
+          "ordinary_gpu_forward_survived": true,
+          "live_kv_references": 0
+        }
+      },
+      {
+        "name": "native-gdn-v1-graph",
+        "family": "qwen3next",
+        "runner": "v1",
+        "prefix_cache": "on",
+        "cuda_graph": true,
+        "stream_interval": 10,
+        "full_attention_block_sizes": [
+          272
+        ],
+        "cases": [
+          {
+            "prompt_tokens": 15,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0002460479736328125,
+            "changed_prefix_score_delta": 0.21195173263549805
+          },
+          {
+            "prompt_tokens": 16,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.000194549560546875,
+            "changed_prefix_score_delta": 0.14637279510498047
+          },
+          {
+            "prompt_tokens": 17,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0002455711364746094,
+            "changed_prefix_score_delta": 0.25554561614990234
+          },
+          {
+            "prompt_tokens": 271,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.00018405914306640625,
+            "changed_prefix_score_delta": 0.02718830108642578
+          },
+          {
+            "prompt_tokens": 272,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.00010824203491210938,
+            "changed_prefix_score_delta": 0.041733741760253906
+          },
+          {
+            "prompt_tokens": 273,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.00024127960205078125,
+            "changed_prefix_score_delta": 0.03867292404174805
+          }
+        ],
+        "cancellation": {
+          "after_eos_fork_before_next_schedule": true,
+          "group_aliases_cleared": true,
+          "unexecuted_copies_cleared": true,
+          "ordinary_gpu_forward_survived": true,
+          "live_kv_references": 0
+        }
+      },
+      {
+        "name": "native-gdn-v2-apcoff",
+        "family": "qwen3next",
+        "runner": "v2",
+        "prefix_cache": "off",
+        "cuda_graph": false,
+        "stream_interval": 10,
+        "full_attention_block_sizes": [
+          272
+        ],
+        "cases": [
+          {
+            "prompt_tokens": 15,
+            "seed": 0,
+            "stop_token": 43,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.00023317337036132812,
+            "changed_prefix_score_delta": 0.34932994842529297
+          },
+          {
+            "prompt_tokens": 16,
+            "seed": 0,
+            "stop_token": 13,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0002493858337402344,
+            "changed_prefix_score_delta": 0.3424367904663086
+          },
+          {
+            "prompt_tokens": 17,
+            "seed": 0,
+            "stop_token": 125,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0002446174621582031,
+            "changed_prefix_score_delta": 0.18230009078979492
+          },
+          {
+            "prompt_tokens": 271,
+            "seed": 0,
+            "stop_token": 110,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0004825592041015625,
+            "changed_prefix_score_delta": 0.05684709548950195
+          },
+          {
+            "prompt_tokens": 272,
+            "seed": 0,
+            "stop_token": 40,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0002532005310058594,
+            "changed_prefix_score_delta": 0.044039249420166016
+          },
+          {
+            "prompt_tokens": 273,
+            "seed": 0,
+            "stop_token": 30,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.00024509429931640625,
+            "changed_prefix_score_delta": 0.030056476593017578
+          }
+        ],
+        "cancellation": {
+          "after_eos_fork_before_next_schedule": true,
+          "group_aliases_cleared": true,
+          "unexecuted_copies_cleared": true,
+          "ordinary_gpu_forward_survived": true,
+          "live_kv_references": 0
+        }
+      },
+      {
+        "name": "native-gdn-v2-apcon",
+        "family": "qwen3next",
+        "runner": "v2",
+        "prefix_cache": "on",
+        "cuda_graph": false,
+        "stream_interval": 10,
+        "full_attention_block_sizes": [
+          272
+        ],
+        "cases": [
+          {
+            "prompt_tokens": 15,
+            "seed": 0,
+            "stop_token": 43,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.00023317337036132812,
+            "changed_prefix_score_delta": 0.34932994842529297
+          },
+          {
+            "prompt_tokens": 16,
+            "seed": 0,
+            "stop_token": 13,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0002493858337402344,
+            "changed_prefix_score_delta": 0.3424367904663086
+          },
+          {
+            "prompt_tokens": 17,
+            "seed": 0,
+            "stop_token": 125,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0002446174621582031,
+            "changed_prefix_score_delta": 0.18230009078979492
+          },
+          {
+            "prompt_tokens": 271,
+            "seed": 0,
+            "stop_token": 110,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0004825592041015625,
+            "changed_prefix_score_delta": 0.05684709548950195
+          },
+          {
+            "prompt_tokens": 272,
+            "seed": 0,
+            "stop_token": 40,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0002593994140625,
+            "changed_prefix_score_delta": 0.04416608810424805
+          },
+          {
+            "prompt_tokens": 273,
+            "seed": 0,
+            "stop_token": 30,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0003056526184082031,
+            "changed_prefix_score_delta": 0.030173301696777344
+          }
+        ],
+        "cancellation": {
+          "after_eos_fork_before_next_schedule": true,
+          "group_aliases_cleared": true,
+          "unexecuted_copies_cleared": true,
+          "ordinary_gpu_forward_survived": true,
+          "live_kv_references": 0
+        }
+      },
+      {
+        "name": "native-gdn-v2-graph",
+        "family": "qwen3next",
+        "runner": "v2",
+        "prefix_cache": "on",
+        "cuda_graph": true,
+        "stream_interval": 10,
+        "full_attention_block_sizes": [
+          272
+        ],
+        "cases": [
+          {
+            "prompt_tokens": 15,
+            "seed": 0,
+            "stop_token": 43,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.00023746490478515625,
+            "changed_prefix_score_delta": 0.34934091567993164
+          },
+          {
+            "prompt_tokens": 16,
+            "seed": 0,
+            "stop_token": 13,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0002551078796386719,
+            "changed_prefix_score_delta": 0.3424344062805176
+          },
+          {
+            "prompt_tokens": 17,
+            "seed": 0,
+            "stop_token": 125,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0003108978271484375,
+            "changed_prefix_score_delta": 0.1823444366455078
+          },
+          {
+            "prompt_tokens": 271,
+            "seed": 0,
+            "stop_token": 110,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.00025081634521484375,
+            "changed_prefix_score_delta": 0.056772708892822266
+          },
+          {
+            "prompt_tokens": 272,
+            "seed": 0,
+            "stop_token": 40,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0004820823669433594,
+            "changed_prefix_score_delta": 0.044033050537109375
+          },
+          {
+            "prompt_tokens": 273,
+            "seed": 0,
+            "stop_token": 30,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0002422332763671875,
+            "changed_prefix_score_delta": 0.02999114990234375
+          }
+        ],
+        "cancellation": {
+          "after_eos_fork_before_next_schedule": true,
+          "group_aliases_cleared": true,
+          "unexecuted_copies_cleared": true,
+          "ordinary_gpu_forward_survived": true,
+          "live_kv_references": 0
+        }
+      },
+      {
+        "name": "native-opt-v1-apcoff",
+        "family": "opt",
+        "runner": "v1",
+        "prefix_cache": "off",
+        "cuda_graph": false,
+        "stream_interval": 10,
+        "full_attention_block_sizes": [
+          16
+        ],
+        "cases": [
+          {
+            "prompt_tokens": 15,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.00025081634521484375,
+            "changed_prefix_score_delta": 0.17377328872680664
+          },
+          {
+            "prompt_tokens": 16,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.00037860870361328125,
+            "changed_prefix_score_delta": 0.1529068946838379
+          },
+          {
+            "prompt_tokens": 17,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.000347137451171875,
+            "changed_prefix_score_delta": 0.19020843505859375
+          }
+        ],
+        "cancellation": {
+          "after_eos_fork_before_next_schedule": true,
+          "group_aliases_cleared": true,
+          "unexecuted_copies_cleared": true,
+          "ordinary_gpu_forward_survived": true,
+          "live_kv_references": 0
+        }
+      },
+      {
+        "name": "native-opt-v1-apcon",
+        "family": "opt",
+        "runner": "v1",
+        "prefix_cache": "on",
+        "cuda_graph": false,
+        "stream_interval": 10,
+        "full_attention_block_sizes": [
+          16
+        ],
+        "cases": [
+          {
+            "prompt_tokens": 1,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 0,
+            "trajectories": 3,
+            "max_logprob_error": 0.0,
+            "changed_prefix_score_delta": null
+          },
+          {
+            "prompt_tokens": 2,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0,
+            "changed_prefix_score_delta": 0.2587909698486328
+          },
+          {
+            "prompt_tokens": 15,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.00025081634521484375,
+            "changed_prefix_score_delta": 0.17377328872680664
+          },
+          {
+            "prompt_tokens": 16,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.00037860870361328125,
+            "changed_prefix_score_delta": 0.1529068946838379
+          },
+          {
+            "prompt_tokens": 17,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.000347137451171875,
+            "changed_prefix_score_delta": 0.19020843505859375
+          }
+        ],
+        "cancellation": {
+          "after_eos_fork_before_next_schedule": true,
+          "group_aliases_cleared": true,
+          "unexecuted_copies_cleared": true,
+          "ordinary_gpu_forward_survived": true,
+          "live_kv_references": 0
+        }
+      },
+      {
+        "name": "native-opt-v1-graph",
+        "family": "opt",
+        "runner": "v1",
+        "prefix_cache": "on",
+        "cuda_graph": true,
+        "stream_interval": 10,
+        "full_attention_block_sizes": [
+          16
+        ],
+        "cases": [
+          {
+            "prompt_tokens": 15,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.00025081634521484375,
+            "changed_prefix_score_delta": 0.17382287979125977
+          },
+          {
+            "prompt_tokens": 16,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.00025463104248046875,
+            "changed_prefix_score_delta": 0.15274524688720703
+          },
+          {
+            "prompt_tokens": 17,
+            "seed": 0,
+            "stop_token": 28,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.00025272369384765625,
+            "changed_prefix_score_delta": 0.1900768280029297
+          }
+        ],
+        "cancellation": {
+          "after_eos_fork_before_next_schedule": true,
+          "group_aliases_cleared": true,
+          "unexecuted_copies_cleared": true,
+          "ordinary_gpu_forward_survived": true,
+          "live_kv_references": 0
+        }
+      },
+      {
+        "name": "native-opt-v2-apcoff",
+        "family": "opt",
+        "runner": "v2",
+        "prefix_cache": "off",
+        "cuda_graph": false,
+        "stream_interval": 10,
+        "full_attention_block_sizes": [
+          16
+        ],
+        "cases": [
+          {
+            "prompt_tokens": 15,
+            "seed": 0,
+            "stop_token": 43,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0004506111145019531,
+            "changed_prefix_score_delta": 0.224945068359375
+          },
+          {
+            "prompt_tokens": 16,
+            "seed": 0,
+            "stop_token": 13,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0003457069396972656,
+            "changed_prefix_score_delta": 0.24602127075195312
+          },
+          {
+            "prompt_tokens": 17,
+            "seed": 0,
+            "stop_token": 125,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0002913475036621094,
+            "changed_prefix_score_delta": 0.18821191787719727
+          }
+        ],
+        "cancellation": {
+          "after_eos_fork_before_next_schedule": true,
+          "group_aliases_cleared": true,
+          "unexecuted_copies_cleared": true,
+          "ordinary_gpu_forward_survived": true,
+          "live_kv_references": 0
+        }
+      },
+      {
+        "name": "native-opt-v2-apcon",
+        "family": "opt",
+        "runner": "v2",
+        "prefix_cache": "on",
+        "cuda_graph": false,
+        "stream_interval": 10,
+        "full_attention_block_sizes": [
+          16
+        ],
+        "cases": [
+          {
+            "prompt_tokens": 15,
+            "seed": 0,
+            "stop_token": 43,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0004506111145019531,
+            "changed_prefix_score_delta": 0.224945068359375
+          },
+          {
+            "prompt_tokens": 16,
+            "seed": 0,
+            "stop_token": 13,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0003457069396972656,
+            "changed_prefix_score_delta": 0.24602127075195312
+          },
+          {
+            "prompt_tokens": 17,
+            "seed": 0,
+            "stop_token": 125,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0002913475036621094,
+            "changed_prefix_score_delta": 0.18821191787719727
+          }
+        ],
+        "cancellation": {
+          "after_eos_fork_before_next_schedule": true,
+          "group_aliases_cleared": true,
+          "unexecuted_copies_cleared": true,
+          "ordinary_gpu_forward_survived": true,
+          "live_kv_references": 0
+        }
+      },
+      {
+        "name": "native-opt-v2-graph",
+        "family": "opt",
+        "runner": "v2",
+        "prefix_cache": "on",
+        "cuda_graph": true,
+        "stream_interval": 10,
+        "full_attention_block_sizes": [
+          16
+        ],
+        "cases": [
+          {
+            "prompt_tokens": 15,
+            "seed": 0,
+            "stop_token": 43,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0002512931823730469,
+            "changed_prefix_score_delta": 0.2246994972229004
+          },
+          {
+            "prompt_tokens": 16,
+            "seed": 0,
+            "stop_token": 13,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.0002231597900390625,
+            "changed_prefix_score_delta": 0.24573326110839844
+          },
+          {
+            "prompt_tokens": 17,
+            "seed": 0,
+            "stop_token": 125,
+            "segment_pairs": 2,
+            "eos_forks": 1,
+            "warmup_forks": 1,
+            "trajectories": 3,
+            "max_logprob_error": 0.00024890899658203125,
+            "changed_prefix_score_delta": 0.18825817108154297
+          }
+        ],
+        "cancellation": {
+          "after_eos_fork_before_next_schedule": true,
+          "group_aliases_cleared": true,
+          "unexecuted_copies_cleared": true,
+          "ordinary_gpu_forward_survived": true,
+          "live_kv_references": 0
+        }
+      }
+    ]
+  },
+  "reproduce": {
+    "model_checker": "examples/basic/offline_inference/equal_length_gpu_check.py",
+    "commands": [
+      "uv run --no-project --python <CUDA_ENV>/bin/python python examples/basic/offline_inference/equal_length_gpu_check.py --family opt --prompt-lengths 1,2,15,16,17",
+      "uv run --no-project --python <CUDA_ENV>/bin/python python examples/basic/offline_inference/equal_length_gpu_check.py --family qwen3next --runner v2 --prefix-cache off",
+      "uv run --no-project --python <CUDA_ENV>/bin/python python examples/basic/offline_inference/equal_length_gpu_check.py --family qwen3next --runner v2 --graph",
+      "uv run --no-project --python <CUDA_ENV>/bin/python python -m pytest tests/v1/worker/test_mamba_utils.py::TestPostprocessMambaFusedKernel tests/kernels/mamba/test_precopy_mamba_align.py -q"
+    ],
+    "wsl_environment": {
+      "LD_LIBRARY_PATH": "/usr/lib/wsl/lib",
+      "VLLM_TARGET_DEVICE": "cuda"
+    }
+  },
+  "limitations": [
+    "Single GPU / TP=1 only; no full Qwen3-Next-80B pretrained-weight validation.",
+    "Core requires async_scheduling=False; frontend AsyncLLM is tested separately.",
+    "Correctness, physical page sharing and next-step scheduling evidence do not measure throughput or full-device GPU utilization.",
+    "CUDA Graph cases use prefix caching enabled; eager mode covers caching on and off.",
+    "The 36-case direct-copy diagnostic was run from a temporary script; existing CUDA regression suites and the saved model checker provide persistent follow-up checks.",
+    "Async MP consumer-backpressure diagnostics were executed from a temporary script; the saved model checker covers in-process scheduling and model correctness."
+  ],
+  "async_mp_checks": {
+    "prompt_cases": 4,
+    "cancellation_cases": 2,
+    "all_groups_frontend_generate_calls": 2,
+    "all_groups_frontend_add_calls": 2,
+    "all_groups_core_ipc_add_calls": 2,
+    "runs": [
+      {
+        "family": "opt",
+        "runner": "v1",
+        "prefix_cache": "on",
+        "stream_interval": 10,
+        "client_type": "AsyncMPClient",
+        "consumer_backpressure": "group_complete_before_first_read",
+        "cases": [
+          {
+            "prompt_tokens": 16,
+            "segment_pairs": 2,
+            "trajectories": 3,
+            "max_logprob_error": 0.00037860870361328125,
+            "frontend_generate_calls": 2,
+            "frontend_add_calls": 2,
+            "core_ipc_add_calls": 2
+          },
+          {
+            "prompt_tokens": 17,
+            "segment_pairs": 2,
+            "trajectories": 3,
+            "max_logprob_error": 0.000347137451171875,
+            "frontend_generate_calls": 2,
+            "frontend_add_calls": 2,
+            "core_ipc_add_calls": 2
+          }
+        ],
+        "cancellation": {
+          "renewed_branch_observed": true,
+          "cancellation_propagated": true,
+          "frontend_states_and_aliases_empty": true,
+          "ordinary_gpu_forward_survived": true,
+          "frontend_generate_calls": 2,
+          "frontend_add_calls": 2,
+          "core_ipc_add_calls": 2
+        },
+        "max_completions_in_message": 2,
+        "branch_indices": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "family": "gdn",
+        "runner": "v1",
+        "prefix_cache": "on",
+        "stream_interval": 10,
+        "client_type": "AsyncMPClient",
+        "consumer_backpressure": "group_complete_before_first_read",
+        "cases": [
+          {
+            "prompt_tokens": 16,
+            "segment_pairs": 2,
+            "trajectories": 3,
+            "max_logprob_error": 0.0003380775451660156,
+            "frontend_generate_calls": 2,
+            "frontend_add_calls": 2,
+            "core_ipc_add_calls": 2
+          },
+          {
+            "prompt_tokens": 17,
+            "segment_pairs": 2,
+            "trajectories": 3,
+            "max_logprob_error": 0.00022411346435546875,
+            "frontend_generate_calls": 2,
+            "frontend_add_calls": 2,
+            "core_ipc_add_calls": 2
+          }
+        ],
+        "cancellation": {
+          "renewed_branch_observed": true,
+          "cancellation_propagated": true,
+          "frontend_states_and_aliases_empty": true,
+          "ordinary_gpu_forward_survived": true,
+          "frontend_generate_calls": 2,
+          "frontend_add_calls": 2,
+          "core_ipc_add_calls": 2
+        },
+        "max_completions_in_message": 2,
+        "branch_indices": [
+          0,
+          1,
+          2
+        ]
+      }
+    ]
+  },
+  "total_model_prompt_cases": 60,
+  "total_model_cancellation_cases": 14
+}
